@@ -6,17 +6,154 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Cheques</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Estilos -->
   <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="template/template_cheque.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
 </head>
 
 <body>
   <div id="vista_cheque">
     <div class="hoja">
 
+      <div class="fecha rotar" style="top: 10.5cm; left: 11.5cm; width: 5cm; height: 0.5cm; text-align: center;">
+        06 de Junio del 2015
+      </div>
+
+      <div class="monto rotar" style="top: 12cm; left: 10.2cm; width: 4cm; height: 0.5cm; text-align: center;">
+        10,010.00
+      </div>
+
+      <div class="beneficiario rotar" style="top: 3.5cm; left: 10.1cm; width: 8cm; height: 0.5cm; text-align: left;">
+        TESORERIA
+      </div>
+
+      <div class="monto_letra rotar" style="top: 2.5cm; left: 9.3cm; width: 13cm; height: 0.5cm; text-align: left;">
+        DIEZ MIL DIEZ PESOS 00/100 M.N
+      </div>
+
     </div>
   </div>
-  <div id="vista_css">
+
+  <!--<div id="vista_css">
     <textarea id="file" name="" class="editor" cols="45" rows="44" placeholder="Escribe tu codigo aqui"></textarea>
+  </div>-->
+
+  <div id="botones">
+
+    <div class="fila-botones">
+      <h3>Fecha: </h3>
+
+      <button id="fecha-left" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-left"></i>
+        </span>
+      </button>
+
+      <button id="fecha-down" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-down"></i>
+        </span>
+      </button>
+
+      <button id="fecha-up" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-up"></i>
+        </span>
+      </button>
+
+      <button id="fecha-right" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-right"></i>
+        </span>
+      </button>
+    </div>
+
+    <div class="fila-botones">
+      <h3>Monto: </h3>
+
+      <button id="monto-left" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-left"></i>
+        </span>
+      </button>
+
+      <button id="monto-down" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-down"></i>
+        </span>
+      </button>
+
+      <button id="monto-up" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-up"></i>
+        </span>
+      </button>
+
+      <button id="monto-right" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-right"></i>
+        </span>
+      </button>
+    </div>
+
+    <div class="fila-botones">
+      <h3>Beneficiario: </h3>
+
+      <button id="beneficiario-left" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-left"></i>
+        </span>
+      </button>
+
+      <button id="beneficiario-down" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-down"></i>
+        </span>
+      </button>
+
+      <button id="beneficiario-up" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-up"></i>
+        </span>
+      </button>
+
+      <button id="beneficiario-right" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-right"></i>
+        </span>
+      </button>
+    </div>
+
+    <div class="fila-botones">
+      <h3>Monto Letra: </h3>
+
+      <button id="monto-letra-left" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-left"></i>
+        </span>
+      </button>
+
+      <button id="monto-letra-down" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-down"></i>
+        </span>
+      </button>
+
+      <button id="monto-letra-up" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-up"></i>
+        </span>
+      </button>
+
+      <button id="monto-letra-right" class="button is-small">
+        <span class="icon is-small">
+          <i class="fas fa-angle-right"></i>
+        </span>
+      </button>
+    </div>
   </div>
 
 
@@ -26,6 +163,9 @@
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/javascript");
   </script>-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="main.js"></script>
 </body>

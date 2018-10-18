@@ -13,7 +13,7 @@ div {
 }
 
 #vista_cheque {
-  width: 70%;
+  width: 80%;
   height: 625px;
   background-color: #525659;
   justify-content: center;
@@ -21,8 +21,13 @@ div {
   border: 3px solid black;
 }
 
+#botones {
+  width: 20%;
+  height: 625px;
+}
+
 #vista_css {
-  width: 30%;
+  width: 15%;
   height: 625px;
 }
 
@@ -37,4 +42,9 @@ div {
   height: 85%;
   margin: 30px 0;
   background-color: white;
+}
+
+.fila-botones {
+  flex-direction: column;
+  align-content: center;
 }
