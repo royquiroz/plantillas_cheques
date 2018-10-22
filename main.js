@@ -9,6 +9,15 @@
   });
 */
 
+function elemento(e) {
+  console.log(e);
+
+  if (e.srcElement) tag = e.srcElement.className;
+  else if (e.target) tag = e.target.className;
+
+  alert("El elemento selecionado ha sido " + tag);
+}
+
 /* Codigo Jquery */
 /* Fecha */
 $("#fecha-right").click(function() {
@@ -88,9 +97,15 @@ function toggle_visibility() {
 }
 
 let fecha = document.getElementsByClassName("fecha");
-console.log(fecha[0].style.left);
+let monto = document.getElementsByClassName("monto");
+let beneficiario = document.getElementsByClassName("beneficiario");
+let monto_letra = document.getElementsByClassName("monto_letra");
 
-let css = `.rotar {
+var descargar = document.getElementById("descargar");
+var campo = document.getElementById("file");
+
+function mensaje() {
+  let css = `.rotar {
     border: 1px solid #dfdfdf;
     position: absolute;
     margin: 0;
@@ -119,30 +134,28 @@ let css = `.rotar {
   }
   
   .monto {
-    top: 12cm;
-    left: 10.2cm;
+    top: ${monto[0].style.top};
+    left: ${monto[0].style.left};
     width: 4cm;
     height: 0.5cm;
     text-align: center;
   }
 
   .beneficiario {
-    top: 3.5cm;
-    left: 10.1cm;
+    top: ${beneficiario[0].style.top};
+    left: ${beneficiario[0].style.left};
     width: 8cm;
     height: 0.5cm;
     text-align: left;
   }
   
   .monto_letra {
-    top: 2.5cm;
-    left: 9.3cm;
+    top: ${monto_letra[0].style.top};
+    left: ${monto_letra[0].style.left};
     width: 13cm;
     height: 0.5cm;
     text-align: left;
   }`;
 
-var elem = document.getElementById("descargar");
-
-elem.download = "template_cheque.css";
-elem.href = "data:application/octet-stream," + encodeURIComponent(css);
+  campo.value = css;
+}

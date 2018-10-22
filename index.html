@@ -14,7 +14,7 @@
     crossorigin="anonymous">
 </head>
 
-<body>
+<body onmousedown="elemento(event);">
   <div id="vista_cheque">
     <div class="hoja">
 
@@ -37,9 +37,9 @@
     </div>
   </div>
 
-  <!--<div id="vista_css">
+  <div id="vista_css">
     <textarea id="file" name="" class="editor" cols="45" rows="44" placeholder="Escribe tu codigo aqui"></textarea>
-  </div>-->
+  </div>
 
   <div id="botones">
 
@@ -162,17 +162,9 @@
       </label>
     </div>
 
-    <a id="descargar">Descargar css</a>
+    <a id="descargar" onclick="mensaje()">Descargar css</a>
   </div>
 
-
-
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script>
-    var editor = ace.edit("vista_css");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/javascript");
-  </script>-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
