@@ -9,17 +9,36 @@
   });
 */
 
+let tag;
+let medida = ".1cm";
 function elemento(e) {
-  console.log(e);
+  if (e.srcElement.className.includes("rotar") && e.target.nodeName === "DIV") {
+    tag = e.srcElement.className;
+    tag = tag.replace(" rotar", "");
+  }
 
-  if (e.srcElement) tag = e.srcElement.className;
-  else if (e.target) tag = e.target.className;
+  $("#right").click(function() {
+    $(`.${tag}`).css({ left: `+=${medida}` });
+  });
 
-  alert("El elemento selecionado ha sido " + tag);
+  $("#left").click(function() {
+    $(`.${tag}`).css({ left: `-=${medida}` });
+  });
+
+  $("#up").click(function() {
+    $(`.${tag}`).css({ top: `-=${medida}` });
+  });
+
+  $("#down").click(function() {
+    $(`.${tag}`).css({ top: `+=${medida}` });
+  });
+  //else if (e.target) tag = e.target.className;
+  console.log(tag);
 }
 
 /* Codigo Jquery */
 /* Fecha */
+/*
 $("#fecha-right").click(function() {
   $(".fecha").css({ left: "+=0.1cm" });
 });
@@ -35,8 +54,10 @@ $("#fecha-up").click(function() {
 $("#fecha-down").click(function() {
   $(".fecha").css({ top: "+=0.1cm" });
 });
+*/
 
 /* Monto */
+/*
 $("#monto-right").click(function() {
   $(".monto").css({ left: "+=0.1cm" });
 });
@@ -52,8 +73,10 @@ $("#monto-up").click(function() {
 $("#monto-down").click(function() {
   $(".monto").css({ top: "+=0.1cm" });
 });
+*/
 
 /* Beneficiario */
+/*
 $("#beneficiario-right").click(function() {
   $(".beneficiario").css({ left: "+=0.1cm" });
 });
@@ -69,8 +92,10 @@ $("#beneficiario-up").click(function() {
 $("#beneficiario-down").click(function() {
   $(".beneficiario").css({ top: "+=0.1cm" });
 });
+*/
 
 /* Monto Letra */
+/*
 $("#monto-letra-right").click(function() {
   $(".monto_letra").css({ left: "+=0.1cm" });
 });
@@ -86,6 +111,7 @@ $("#monto-letra-up").click(function() {
 $("#monto-letra-down").click(function() {
   $(".monto_letra").css({ top: "+=0.1cm" });
 });
+*/
 
 /* Rotar */
 function toggle_visibility() {
