@@ -1,16 +1,5 @@
-/*axios
-  .get("https://s3-us-west-1.amazonaws.com/racooi/template_cheque.css")
-  .then(res => {
-    console.log(res);
-    document.getElementById("file").innerText = res.data;
-  })
-  .catch(err => {
-    throw new Error(err);
-  });
-*/
-
+/*Identificacion del elemento */
 let tag;
-let medida = ".1cm";
 function elemento(e) {
   if (e.srcElement.className.includes("rotar") && e.target.nodeName === "DIV") {
     tag = e.srcElement.className;
@@ -18,107 +7,51 @@ function elemento(e) {
   }
 
   $("#right").click(function() {
-    $(`.${tag}`).css({ left: `+=${medida}` });
+    $(`.${tag}`).css({ left: "+=0.1cm" });
   });
 
   $("#left").click(function() {
-    $(`.${tag}`).css({ left: `-=${medida}` });
+    $(`.${tag}`).css({ left: "-=0.1cm" });
   });
 
   $("#up").click(function() {
-    $(`.${tag}`).css({ top: `-=${medida}` });
+    $(`.${tag}`).css({ top: "-=0.1cm" });
   });
 
   $("#down").click(function() {
-    $(`.${tag}`).css({ top: `+=${medida}` });
+    $(`.${tag}`).css({ top: "+=0.1cm" });
   });
   //else if (e.target) tag = e.target.className;
-  console.log(tag);
+  //console.log(tag);
 }
 
-/* Codigo Jquery */
-/* Fecha */
-/*
-$("#fecha-right").click(function() {
-  $(".fecha").css({ left: "+=0.1cm" });
-});
-
-$("#fecha-left").click(function() {
-  $(".fecha").css({ left: "-=0.1cm" });
-});
-
-$("#fecha-up").click(function() {
-  $(".fecha").css({ top: "-=0.1cm" });
-});
-
-$("#fecha-down").click(function() {
-  $(".fecha").css({ top: "+=0.1cm" });
-});
-*/
-
-/* Monto */
-/*
-$("#monto-right").click(function() {
-  $(".monto").css({ left: "+=0.1cm" });
-});
-
-$("#monto-left").click(function() {
-  $(".monto").css({ left: "-=0.1cm" });
-});
-
-$("#monto-up").click(function() {
-  $(".monto").css({ top: "-=0.1cm" });
-});
-
-$("#monto-down").click(function() {
-  $(".monto").css({ top: "+=0.1cm" });
-});
-*/
-
-/* Beneficiario */
-/*
-$("#beneficiario-right").click(function() {
-  $(".beneficiario").css({ left: "+=0.1cm" });
-});
-
-$("#beneficiario-left").click(function() {
-  $(".beneficiario").css({ left: "-=0.1cm" });
-});
-
-$("#beneficiario-up").click(function() {
-  $(".beneficiario").css({ top: "-=0.1cm" });
-});
-
-$("#beneficiario-down").click(function() {
-  $(".beneficiario").css({ top: "+=0.1cm" });
-});
-*/
-
-/* Monto Letra */
-/*
-$("#monto-letra-right").click(function() {
-  $(".monto_letra").css({ left: "+=0.1cm" });
-});
-
-$("#monto-letra-left").click(function() {
-  $(".monto_letra").css({ left: "-=0.1cm" });
-});
-
-$("#monto-letra-up").click(function() {
-  $(".monto_letra").css({ top: "-=0.1cm" });
-});
-
-$("#monto-letra-down").click(function() {
-  $(".monto_letra").css({ top: "+=0.1cm" });
-});
-*/
-
 /* Rotar */
+var e = document.getElementsByClassName("rotar");
+let rotate = 90;
+
 function toggle_visibility() {
-  var e = document.getElementsByClassName("rotar");
   for (let i = 0; i < e.length; i++) {
-    if (e[i].style.transform === "rotate(90deg)") e[i].style.transform = "none";
-    else e[i].style.transform = "rotate(90deg)";
+    let top = e[i].style.top;
+    let left = e[i].style.left;
+    if (e[i].style.transform === "rotate(90deg)") {
+      e[i].style.transform = "none";
+      rotate = 0;
+    } else {
+      e[i].style.transform = "rotate(90deg)";
+
+      /*if (e[i].className == "fecha rotar") {
+        e[i].style.top = left += "1cm";
+        e[i].style.left = top;
+        console.log(e[i].style.left);
+      } else if (e[i].className == "monto_letra rotar") {
+        e[i].style.top = left -= "1cm";
+        e[i].style.left = top;
+      }*/
+
+      e[i].style.top = left;
+      e[i].style.left = top;
+      rotate = 90;
+    }
   }
 }
 
@@ -132,10 +65,10 @@ var campo = document.getElementById("file");
 
 function mensaje() {
   let css = `.rotar {
-    border: 1px solid #dfdfdf;
+    border: 0px solid #dfdfdf;
     position: absolute;
     margin: 0;
-    rotate: 90;
+    rotate: ${rotate};
   }
   
   img {
