@@ -16,6 +16,8 @@ function toggle_visibility() {
     let left = e[i].style.left;
     if (e[i].style.transform === "rotate(90deg)") {
       e[i].style.transform = "none";
+      e[i].style.top = left;
+      e[i].style.left = top;
       rotate = 0;
     } else {
       e[i].style.transform = "rotate(90deg)";
@@ -40,33 +42,50 @@ function elemento(e) {
     tag = tag.replace(" rotar", "");
   }
 
-  $("#right").click(function() {
-    $(`.${tag}`).css({ left: "+=0.1cm" });
+  let element = $(`.${tag}`);
+
+  $("#right").on("click", function() {
+    let right = (parseFloat(element[0].style.left) + 0.1).toFixed(1) + "cm";
+    console.log(right);
+    $(`.${tag}`).css({ left: right });
   });
 
-  $("#left").click(function() {
-    $(`.${tag}`).css({ left: "-=0.1cm" });
+  $("#left").on("click", function() {
+    let left = (parseFloat(element[0].style.left) - 0.1).toFixed(1) + "cm";
+    console.log(left);
+    $(`.${tag}`).css({ left: left });
   });
 
-  $("#up").click(function() {
-    $(`.${tag}`).css({ top: "-=0.1cm" });
+  $("#up").on("click", function() {
+    let up = (parseFloat(element[0].style.top) - 0.1).toFixed(1) + "cm";
+    console.log(up);
+    $(`.${tag}`).css({ top: up });
   });
 
-  $("#down").click(function() {
-    $(`.${tag}`).css({ top: "+=0.1cm" });
+  $("#down").on("click", function() {
+    let down = (parseFloat(element[0].style.top) + 0.1).toFixed(1) + "cm";
+    console.log(down);
+    $(`.${tag}`).css({ top: down });
   });
-  //else if (e.target) tag = e.target.className;
-  //console.log(tag);
+
+  console.log("Top", element[0].style.top);
+  console.log("Left", element[0].style.left);
 }
 
 function mensaje() {
   let montoLetra_left = monto_letra[0].style.left;
   let beneficiario_left = beneficiario[0].style.left;
+
   if (e[0].style.transform === "rotate(90deg)") {
     beneficiario_left =
       parseFloat(beneficiario[0].style.left.replace(/cm/, "")) + 2 + "cm";
     montoLetra_left =
       parseFloat(monto_letra[0].style.left.replace(/cm/, "")) + 5 + "cm";
+  } else {
+    beneficiario_left =
+      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) - 2 + "cm";
+    montoLetra_left =
+      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) - 5 + "cm";
   }
 
   let css = `.rotar {
@@ -123,3 +142,15 @@ function mensaje() {
 
   campo.value = css;
 }
+
+/*$('#button1, #button2, #button3, #button4').click(function(event){ 
+  if($(event.target).attr('id')=='button1'){
+      
+  } else if($(event.target).attr('id')=='button2'){
+      
+  } else if($(event.target).attr('id')=='button3'){
+      
+  } else if($(event.target).attr('id')=='button4'){
+      
+  } 
+});*/

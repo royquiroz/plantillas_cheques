@@ -44,11 +44,11 @@ div {
   background-color: white;
 }
 
-.fila-botones {
+/*.fila-botones {
   flex-direction: column;
   align-content: center;
   flex-wrap: wrap;
-}
+}*/
 
 .rotar {
   justify-content: center;
