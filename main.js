@@ -46,30 +46,30 @@ function elemento(e) {
 
   $("#right").on("click", function() {
     let right = (parseFloat(element[0].style.left) + 0.1).toFixed(1) + "cm";
-    console.log(right);
+    //console.log(right);
     $(`.${tag}`).css({ left: right });
   });
 
   $("#left").on("click", function() {
     let left = (parseFloat(element[0].style.left) - 0.1).toFixed(1) + "cm";
-    console.log(left);
+    //console.log(left);
     $(`.${tag}`).css({ left: left });
   });
 
   $("#up").on("click", function() {
     let up = (parseFloat(element[0].style.top) - 0.1).toFixed(1) + "cm";
-    console.log(up);
+    //console.log(up);
     $(`.${tag}`).css({ top: up });
   });
 
   $("#down").on("click", function() {
     let down = (parseFloat(element[0].style.top) + 0.1).toFixed(1) + "cm";
-    console.log(down);
+    //console.log(down);
     $(`.${tag}`).css({ top: down });
   });
 
-  console.log("Top", element[0].style.top);
-  console.log("Left", element[0].style.left);
+  //console.log("Top", element[0].style.top);
+  //console.log("Left", element[0].style.left);
 }
 
 function mensaje() {
@@ -143,14 +143,5 @@ function mensaje() {
   campo.value = css;
 }
 
-/*$('#button1, #button2, #button3, #button4').click(function(event){ 
-  if($(event.target).attr('id')=='button1'){
-      
-  } else if($(event.target).attr('id')=='button2'){
-      
-  } else if($(event.target).attr('id')=='button3'){
-      
-  } else if($(event.target).attr('id')=='button4'){
-      
-  } 
-});*/
+/*Checkbox*/
+$(".ui.checkbox").checkbox();

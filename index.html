@@ -9,7 +9,7 @@
   <!-- Estilos -->
   <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="template/template_cheque.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
     crossorigin="anonymous">
 </head>
@@ -44,43 +44,48 @@
   <div id="botones">
 
     <div class="fila-botones">
-      <button id="left" class="button is-small">
-        <span class="icon is-small">
-          <i class="fas fa-angle-left"></i>
-        </span>
+      <button id="left" class="ui circular icon button blue">
+        <i class="arrow left icon"></i>
       </button>
 
-      <button id="down" class="button is-small">
-        <span class="icon is-small">
-          <i class="fas fa-angle-down"></i>
-        </span>
+      <button id="down" class="ui circular icon button blue">
+        <i class="arrow down icon"></i>
       </button>
 
-      <button id="up" class="button is-small">
-        <span class="icon is-small">
-          <i class="fas fa-angle-up"></i>
-        </span>
+      <button id="up" class="ui circular icon button blue">
+        <i class="arrow up icon"></i>
       </button>
 
-      <button id="right" class="button is-small">
-        <span class="icon is-small">
-          <i class="fas fa-angle-right"></i>
-        </span>
+      <button id="right" class="ui circular icon button blue">
+        <i class="arrow right icon"></i>
       </button>
     </div>
 
+    <div class="inline field" onclick="toggle_visibility()">
+      <div class="ui toggle checkbox">
+        <input type="checkbox" tabindex="0" class="hidden" name="rotar" id="rotar">
+        <label>Rotar</label>
+      </div>
+    </div>
+
+    <!--
     <div>
       <label class="checkbox">
         <input type="checkbox" name="rotar" id="rotar" onclick="toggle_visibility()">
         Rotar
       </label>
     </div>
+    -->
 
-    <button class="button is-small" id="descargar" onclick="mensaje()">CSS</button>
+    <button class="ui button purple" id="descargar" onclick="mensaje()">
+      <i class="css3 icon"></i>
+      CSS
+    </button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="main.js"></script>

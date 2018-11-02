@@ -14,21 +14,21 @@ div {
 
 #vista_cheque {
   width: 75%;
-  height: 625px;
+  height: 640px;
   background-color: white;
   justify-content: center;
   align-items: center;
   border: 3px solid black;
 }
 
-#botones {
+/*#botones {
   width: 25%;
   height: 625px;
-}
+}*/
 
 #vista_css {
   width: 25%;
-  height: 625px;
+  height: 640px;
 }
 
 .editor {
@@ -42,6 +42,12 @@ div {
   height: 85%;
   margin: 30px 0;
   background-color: white;
+}
+
+div#botones {
+  top: 10px;
+  left: 10px;
+  position: absolute;
 }
 
 /*.fila-botones {
