@@ -91,9 +91,9 @@ function mensaje() {
 
     /*Left de elementos en 90grados */
     beneficiario_left =
-      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) + 1.5 + "cm";
+      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) + 2 + "cm";
     montoLetra_left =
-      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) + 3.5 + "cm";
+      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) + 4 + "cm";
   } else {
     /*Top de elementos en 0grados */
     fecha_top = parseFloat(fecha[0].style.top.replace(/cm/, "")) + 2 + "cm";
@@ -105,9 +105,9 @@ function mensaje() {
 
     /*Left de elementos en 0grados */
     beneficiario_left =
-      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) - 1.5 + "cm";
+      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) - 2 + "cm";
     montoLetra_left =
-      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) - 3.5 + "cm";
+      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) - 4 + "cm";
   }
 
   let css = `.rotar {
