@@ -10,6 +10,7 @@ var campo = document.getElementById("file");
 var e = document.getElementsByClassName("rotar");
 let rotate = 90;
 
+/*Funcion de rotar*/
 function toggle_visibility() {
   for (let i = 0; i < e.length; i++) {
     let top = e[i].style.top;
@@ -23,69 +24,90 @@ function toggle_visibility() {
       e[i].style.transform = "rotate(90deg)";
       e[i].style.top = left;
       e[i].style.left = top;
-
-      /*if (e[i].className == "fecha rotar") {
-        e[i].style.top =
-          parseFloat(e[i].style.top.replace(/cm/, "")) + 1 + "cm";
-        //e[i].style.top += "10cm";
-      }*/
       rotate = 90;
     }
   }
 }
 
-/*Identificacion del elemento */
+/*Identificacion del elemento*/
 let tag;
 function elemento(e) {
-  if (e.srcElement.className.includes("rotar") && e.target.nodeName === "DIV") {
+  if (
+    e.srcElement.className.includes("rotar") &&
+    e.target.nodeName === "SPAN"
+  ) {
     tag = e.srcElement.className;
     tag = tag.replace(" rotar", "");
   }
-
   let element = $(`.${tag}`);
 
-  $("#right").on("click", function() {
-    let right = (parseFloat(element[0].style.left) + 0.1).toFixed(1) + "cm";
-    //console.log(right);
-    $(`.${tag}`).css({ left: right });
-  });
+  $("#right")
+    .unbind("click")
+    .click(function() {
+      let right = (parseFloat(element[0].style.left) + 0.1).toFixed(1) + "cm";
+      $(`.${tag}`).css({ left: right });
+    });
 
-  $("#left").on("click", function() {
-    let left = (parseFloat(element[0].style.left) - 0.1).toFixed(1) + "cm";
-    //console.log(left);
-    $(`.${tag}`).css({ left: left });
-  });
+  $("#left")
+    .unbind("click")
+    .click(function() {
+      let left = (parseFloat(element[0].style.left) - 0.1).toFixed(1) + "cm";
+      $(`.${tag}`).css({ left: left });
+    });
 
-  $("#up").on("click", function() {
-    let up = (parseFloat(element[0].style.top) - 0.1).toFixed(1) + "cm";
-    //console.log(up);
-    $(`.${tag}`).css({ top: up });
-  });
+  $("#up")
+    .unbind("click")
+    .click(function() {
+      let up = (parseFloat(element[0].style.top) - 0.1).toFixed(1) + "cm";
+      $(`.${tag}`).css({ top: up });
+    });
 
-  $("#down").on("click", function() {
-    let down = (parseFloat(element[0].style.top) + 0.1).toFixed(1) + "cm";
-    //console.log(down);
-    $(`.${tag}`).css({ top: down });
-  });
-
-  //console.log("Top", element[0].style.top);
-  //console.log("Left", element[0].style.left);
+  $("#down")
+    .unbind("click")
+    .click(function() {
+      let down = (parseFloat(element[0].style.top) + 0.1).toFixed(1) + "cm";
+      $(`.${tag}`).css({ top: down });
+    });
 }
 
+/*Funcion para mostrar en pantalla el CSS*/
 function mensaje() {
   let montoLetra_left = monto_letra[0].style.left;
   let beneficiario_left = beneficiario[0].style.left;
 
+  let fecha_top = fecha[0].style.top;
+  let monto_top = monto[0].style.top;
+  let beneficiario_top = beneficiario[0].style.top;
+  let montoLetra_top = monto_letra[0].style.top;
+
   if (e[0].style.transform === "rotate(90deg)") {
+    /*Top de elementos en 90grados */
+    fecha_top = parseFloat(fecha[0].style.top.replace(/cm/, "")) - 2 + "cm";
+    monto_top = parseFloat(monto[0].style.top.replace(/cm/, "")) - 2 + "cm";
+    beneficiario_top =
+      parseFloat(beneficiario[0].style.top.replace(/cm/, "")) - 2 + "cm";
+    montoLetra_top =
+      parseFloat(monto_letra[0].style.top.replace(/cm/, "")) - 2 + "cm";
+
+    /*Left de elementos en 90grados */
     beneficiario_left =
-      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) + 2 + "cm";
+      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) + 1.5 + "cm";
     montoLetra_left =
-      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) + 5 + "cm";
+      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) + 3.5 + "cm";
   } else {
+    /*Top de elementos en 0grados */
+    fecha_top = parseFloat(fecha[0].style.top.replace(/cm/, "")) + 2 + "cm";
+    monto_top = parseFloat(monto[0].style.top.replace(/cm/, "")) + 2 + "cm";
+    beneficiario_top =
+      parseFloat(beneficiario[0].style.top.replace(/cm/, "")) + 2 + "cm";
+    montoLetra_top =
+      parseFloat(monto_letra[0].style.top.replace(/cm/, "")) + 2 + "cm";
+
+    /*Left de elementos en 0grados */
     beneficiario_left =
-      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) - 2 + "cm";
+      parseFloat(beneficiario[0].style.left.replace(/cm/, "")) - 1.5 + "cm";
     montoLetra_left =
-      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) - 5 + "cm";
+      parseFloat(monto_letra[0].style.left.replace(/cm/, "")) - 3.5 + "cm";
   }
 
   let css = `.rotar {
@@ -109,7 +131,7 @@ function mensaje() {
   }
   
   .fecha {
-    top: ${fecha[0].style.top};
+    top: ${fecha_top};
     left: ${fecha[0].style.left};
     width: 5cm;
     height: 0.5cm;
@@ -117,7 +139,7 @@ function mensaje() {
   }
   
   .monto {
-    top: ${monto[0].style.top};
+    top: ${monto_top};
     left: ${monto[0].style.left};
     width: 4cm;
     height: 0.5cm;
@@ -125,7 +147,7 @@ function mensaje() {
   }
 
   .beneficiario {
-    top: ${beneficiario[0].style.top};
+    top: ${beneficiario_top};
     left: ${beneficiario_left};
     width: 8cm;
     height: 0.5cm;
@@ -133,7 +155,7 @@ function mensaje() {
   }
   
   .monto_letra {
-    top: ${monto_letra[0].style.top};
+    top: ${montoLetra_top};
     left: ${montoLetra_left};
     width: 13cm;
     height: 0.5cm;
