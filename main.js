@@ -70,6 +70,37 @@ function elemento(e) {
     });
 }
 
+function selectCheque() {
+  let banco = document.getElementById("banco").value;
+  console.log(banco);
+
+  if (banco === "banamex") {
+    fecha[0].style.top = "11cm";
+    fecha[0].style.left = "12cm";
+
+    monto[0].style.top = "12.5cm";
+    monto[0].style.left = "11cm";
+
+    beneficiario[0].style.top = "4cm";
+    beneficiario[0].style.left = "11cm";
+
+    monto_letra[0].style.top = "3cm";
+    monto_letra[0].style.left = "10cm";
+  } else if (banco === "bancomer") {
+    fecha[0].style.top = "10cm";
+    fecha[0].style.left = "11cm";
+
+    monto[0].style.top = "11.5cm";
+    monto[0].style.left = "10cm";
+
+    beneficiario[0].style.top = "3.5cm";
+    beneficiario[0].style.left = "10cm";
+
+    monto_letra[0].style.top = "3cm";
+    monto_letra[0].style.left = "10cm";
+  }
+}
+
 /*Funcion para mostrar en pantalla el CSS*/
 function mensaje() {
   let montoLetra_left = monto_letra[0].style.left;

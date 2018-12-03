@@ -1,94 +1,130 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Cheques</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="template/template_cheque.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Cheques</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Estilos -->
-  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="template/template_cheque.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-    crossorigin="anonymous">
-</head>
+  <body onmousedown="elemento(event);">
+    <div id="vista_cheque">
+      <div class="hoja">
+        <span
+          class="fecha rotar"
+          style="top: 10.5cm; left: 11.5cm; width: 5cm; height: 0.5cm; text-align: center; transform: rotate(90deg)"
+        >
+          06 de Junio del 2015
+        </span>
 
-<body onmousedown="elemento(event);">
-  <div id="vista_cheque">
-    <div class="hoja">
+        <span
+          class="monto rotar"
+          style="top: 12cm; left: 10.2cm; width: 4cm; height: 0.5cm; text-align: center; transform: rotate(90deg)"
+        >
+          10,010.00
+        </span>
 
-      <span class="fecha rotar" style="top: 10.5cm; left: 11.5cm; width: 5cm; height: 0.5cm; text-align: center; transform: rotate(90deg)">
-        06 de Junio del 2015
-      </span>
+        <span
+          class="beneficiario rotar"
+          style="top: 3.5cm; left: 10.1cm; width: 8cm; height: 0.5cm; text-align: left; transform: rotate(90deg)"
+        >
+          TESORERIA
+        </span>
 
-      <span class="monto rotar" style="top: 12cm; left: 10.2cm; width: 4cm; height: 0.5cm; text-align: center; transform: rotate(90deg)">
-        10,010.00
-      </span>
-
-      <span class="beneficiario rotar" style="top: 3.5cm; left: 10.1cm; width: 8cm; height: 0.5cm; text-align: left; transform: rotate(90deg)">
-        TESORERIA
-      </span>
-
-      <span class="monto_letra rotar" style="top: 2.5cm; left: 9.3cm; width: 13cm; height: 0.5cm; text-align: left; transform: rotate(90deg)">
-        DIEZ MIL DIEZ PESOS 00/100 M.N
-      </span>
-
-    </div>
-  </div>
-
-  <div id="vista_css">
-    <textarea id="file" name="" class="editor" cols="45" rows="44" placeholder="Escribe tu codigo aqui"></textarea>
-  </div>
-
-  <div id="botones">
-
-    <div class="fila-botones">
-      <button id="left" class="ui circular icon button blue">
-        <i class="arrow left icon"></i>
-      </button>
-
-      <button id="down" class="ui circular icon button blue">
-        <i class="arrow down icon"></i>
-      </button>
-
-      <button id="up" class="ui circular icon button blue">
-        <i class="arrow up icon"></i>
-      </button>
-
-      <button id="right" class="ui circular icon button blue">
-        <i class="arrow right icon"></i>
-      </button>
-    </div>
-
-    <div class="inline field" onclick="toggle_visibility()">
-      <div class="ui toggle checkbox">
-        <input type="checkbox" tabindex="0" class="hidden" name="rotar" id="rotar">
-        <label>Rotar</label>
+        <span
+          class="monto_letra rotar"
+          style="top: 2.5cm; left: 9.3cm; width: 13cm; height: 0.5cm; text-align: left; transform: rotate(90deg)"
+        >
+          DIEZ MIL DIEZ PESOS 00/100 M.N
+        </span>
       </div>
     </div>
 
-    <!--
-    <div>
-      <label class="checkbox">
-        <input type="checkbox" name="rotar" id="rotar" onclick="toggle_visibility()">
-        Rotar
-      </label>
+    <div id="vista_css">
+      <textarea
+        id="file"
+        name=""
+        class="editor"
+        cols="45"
+        rows="44"
+        placeholder="Escribe tu codigo aqui"
+      ></textarea>
     </div>
-    -->
 
-    <button class="ui button purple" id="descargar" onclick="mensaje()">
-      <i class="css3 icon"></i>
-      CSS
-    </button>
-  </div>
+    <div id="botones">
+      <div class="fila-botones">
+        <button id="left" class="ui circular icon button blue">
+          <i class="arrow left icon"></i>
+        </button>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
+        <button id="down" class="ui circular icon button blue">
+          <i class="arrow down icon"></i>
+        </button>
 
+        <button id="up" class="ui circular icon button blue">
+          <i class="arrow up icon"></i>
+        </button>
+
+        <button id="right" class="ui circular icon button blue">
+          <i class="arrow right icon"></i>
+        </button>
+      </div>
+
+      <div class="inline field" onclick="toggle_visibility()">
+        <div class="ui toggle checkbox">
+          <input
+            type="checkbox"
+            tabindex="0"
+            class="hidden"
+            name="rotar"
+            id="rotar"
+          />
+          <label>Rotar</label>
+        </div>
+      </div>
+
+      <select name="select" id="banco" onchange="selectCheque()">
+        <option value="bancomer" selected>Bancomer</option>
+        <option value="banamex">Banamex</option>
+        <!-- <option value="hsbc">HSBC</option> -->
+      </select>
+
+      <div id="demo"></div>
+
+      <button class="ui button purple" id="descargar" onclick="mensaje()">
+        <i class="css3 icon"></i> CSS
+      </button>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
